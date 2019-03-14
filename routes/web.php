@@ -1,5 +1,5 @@
 <?php
-
+use \Illuminate\Support\Facades\Route;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -10,7 +10,10 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/', 'StaticPagesController@home');
+Route::get('/help', 'StaticPagesController@help');
+Route::get('/about', 'StaticPagesController@about');
 
-Route::get('/', function () {
-    return view('welcome');
-});
+//Route::get('/', 'StaticPagesController')->name('home');
+//Route::get('help', 'StaticPagesController')->name('help');
+//Route::get('about', 'StaticPagesController')->name('about');
