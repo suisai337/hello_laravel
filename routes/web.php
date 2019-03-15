@@ -21,6 +21,11 @@ Route::get('/signup', 'UsersController@create')->name('signup');
 //  用户信息
 Route::resource('users', 'UsersController');
 
+//  session
+Route::get('login', 'SessionsController@create')->name('login');
+Route::post('login', 'SessionsController@store')->name('login');
+Route::delete('logout', 'SessionsController@destroy')->name('logout');
+
 //Route::get('/', 'StaticPagesController')->name('home');
 //Route::get('help', 'StaticPagesController')->name('help');
 //Route::get('about', 'StaticPagesController')->name('about');
