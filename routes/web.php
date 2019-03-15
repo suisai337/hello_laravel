@@ -10,9 +10,16 @@ use \Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/', 'StaticPagesController@home');
-Route::get('/help', 'StaticPagesController@help');
-Route::get('/about', 'StaticPagesController@about');
+//  主页
+Route::get('/', 'StaticPagesController@home')->name('home');
+Route::get('/help', 'StaticPagesController@help')->name('help');
+Route::get('/about', 'StaticPagesController@about')->name('about');
+
+//  用户注册
+Route::get('/signup', 'UsersController@create')->name('signup');
+
+//  用户信息
+Route::resource('users', 'UsersController');
 
 //Route::get('/', 'StaticPagesController')->name('home');
 //Route::get('help', 'StaticPagesController')->name('help');
