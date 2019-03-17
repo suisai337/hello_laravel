@@ -26,6 +26,19 @@ Route::get('login', 'SessionsController@create')->name('login');
 Route::post('login', 'SessionsController@store')->name('login');
 Route::delete('logout', 'SessionsController@destroy')->name('logout');
 
+// comfirm emai
+Route::get('signup/comfirm/{token}', 'UsersController@confirmEmail')->name('confirm_email');
+
+//  忘记密码
+Route::get('password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm')->name('password.request');
+Route::post('password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail')->name('password.email');
+
+//  重设密码
+Route::get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm')->name('password.reset');
+Route::post('password/reset', 'Auth\ResetPasswordController@reset')->name('password.update');
+
+
+
 //Route::get('/', 'StaticPagesController')->name('home');
 //Route::get('help', 'StaticPagesController')->name('help');
 //Route::get('about', 'StaticPagesController')->name('about');
